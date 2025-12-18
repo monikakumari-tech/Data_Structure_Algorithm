@@ -10,11 +10,11 @@ public class c_findPermutations {
         // Iterate through each character in the string
         for (int i = 0; i < str.length(); i++) {
             // Choose the current character
-            char ch = str.charAt(i);
+            char curr = str.charAt(i);
             // Form the remaining string after removing the chosen character
-            String ros = str.substring(0, i) + str.substring(i + 1);
+            String newstr = str.substring(0, i) + str.substring(i + 1);
             // Recur with the remaining string and the accumulated answer
-            permutations(ros, ans + ch);
+            permutations(newstr, ans + curr);
         }
     }
 
