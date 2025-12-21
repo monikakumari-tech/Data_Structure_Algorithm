@@ -2,17 +2,23 @@ import java.util.ArrayList;
 
 public class C_pairSum1 {
     public static boolean pairSum(ArrayList<Integer> list, int target) {
-        int left = 0;
-        int right = list.size() - 1;
-        while (left < right) {
-            int sum = list.get(left) + list.get(right);
-            if (sum == target) {
+        int bp = -1;
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i) > list.get(i + 1)) {
+                bp = i;
+                break;
+            }
+        }
+        int lp = bp + 1;
+        int rp = bp;
+        while (lp != rp) {
+            if (list.get(lp) + list.get(rp) == target) {
                 return true;
             }
-            if (sum < target) {
-                left++;
+            if (list.get(lp) + list.get(rp) < target) {
+                lp = (lp + 1) % list.size();
             } else {
-                right--;
+                rp = (list.size() + rp - 1) % list.size();
             }
         }
         return false;
@@ -20,12 +26,12 @@ public class C_pairSum1 {
 
     public static void main(String[] args) {
         ArrayList<Integer> list = new ArrayList<>();
-        list.add(1);
-        list.add(2);
+        list.add(11);
+        list.add(15);
         list.add(3);
         list.add(4);
         list.add(5);
-        int target = 6;
+        int target = 9;
         System.out.println(pairSum(list, target));
     }
 
