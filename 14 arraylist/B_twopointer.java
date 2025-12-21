@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class B_twopointer {
     // O(n) time complexity
+    // contain most water using two pointer approach
     public static int maxArea(ArrayList<Integer> height) {
         int left = 0;
         int right = height.size() - 1;
