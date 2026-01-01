@@ -13,8 +13,8 @@ public class I_detectLoop {
 
     }
 
-    public static Node head;
-    public static Node tail;
+    public Node head;
+    public Node tail;
 
     public void addFirst(int data) {
         // create new node
@@ -81,8 +81,6 @@ public class I_detectLoop {
         ll.print();
 
         ll.tail.next = ll.head.next; // loop starting from second node
-
-        ll.print();
 
         System.out.println(ll.detectLoop()); // false
 
